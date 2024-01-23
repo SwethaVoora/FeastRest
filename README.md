@@ -36,12 +36,13 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 
-## shadcn/ui
+## @auth0/nextjs-auth0
 
-run the commands:
+Run the command:
 
 ```bash
-npx shadcn-ui@latest init
+npm install @auth0/nextjs-auth0
 ```
 
-and add the shadcn components as necessary
+* Follow the Instructions provided at [Integrate Auth0 in Next.js application](https://auth0.com/docs/quickstart/webapp/nextjs/01-login).
+* Configure Actions and Flows in Auth0 account as per your requirements.
