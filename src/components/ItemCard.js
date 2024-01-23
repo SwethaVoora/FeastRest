@@ -34,18 +34,19 @@ const ItemCard = ({ item }) => {
       key={item.ItemId}
       className="mb-8 flex-col bg-transparent border-2 rounded-lg shadow-md pb-4"
     >
-      <Image
-        src="/pic1.jpg"
-        alt="Menu Item Image"
-        width={120}
-        height={120}
-        className="mb-4 w-full rounded-lg"
-      />
+      <picture className="text-center max-h-20">
+        <img
+          src="/pic1.jpg"
+          alt="Menu Item Image"
+          className="mb-4 rounded-t-lg w-auto h-auto"
+        />
+      </picture>
+
       <div className="text-center">
         <strong className="block mb-2">{item.Name}</strong>
         <div className="mb-2">${item.Price.toFixed(2)}</div>
         <button
-          className="bg-brand text-white px-4 py-2 rounded"
+          className="bg-brand text-white px-4 py-2 rounded my-3"
           onClick={() => addToCart(item)}
         >
           Add to Cart

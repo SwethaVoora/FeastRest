@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+// import Navbar from "@/components/Navbar";
 import "/src/app/globals.css";
 import { useRouter } from "next/router";
 import ItemCard from "@/components/ItemCard";
@@ -12,7 +12,6 @@ const CategoryMenu = ({ menuItems }) => {
     return null;
   } else {
     console.log(category);
-    // const { currentCategory } = category;
     menuItems = [
       {
         ItemId: 1,
@@ -119,7 +118,6 @@ const CategoryMenu = ({ menuItems }) => {
     ];
     return (
       <div className="">
-        <Navbar />
         <section className="max-w-6xl mx-auto">
           <h2 className="flex justify-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-brandsecondary m-20">
             {(category + "s").toUpperCase()}
@@ -145,22 +143,12 @@ const CategoryMenu = ({ menuItems }) => {
 export const getServerSideProps = async () => {
   try {
     // const response = await fetch(
-    //   "https://zpdxjxcoc6.execute-api.us-east-2.amazonaws.com/test/menu"
+    //   "https://APIID.execute-api.region.amazonaws.com/test/menu"
     // );
     const data = await response.json();
 
-    // // Group items by category
-    // const menuItemsByCategory = data.records.reduce((acc, item) => {
-    //   if (!acc[item.Category]) {
-    //     acc[item.Category] = { Category: item.Category, items: [] };
-    //   }
-    //   acc[item.Category].items.push(item);
-    //   return acc;
-    // }, {});
-
     return {
       props: {
-        // menuItems: Object.values(menuItemsByCategory),
         menuItems: data.records,
       },
     };

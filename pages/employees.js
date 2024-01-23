@@ -25,7 +25,7 @@ export default EmployeesPage;
 //   try {
 //     // Fetch data from the API endpoint
 //     const response = await fetch(
-//       "https://zpdxjxcoc6.execute-api.us-east-2.amazonaws.com/test/employees"
+//       "https://APIId.execute-api.region.amazonaws.com/test/employees"
 //     );
 
 //     if (!response.ok) {

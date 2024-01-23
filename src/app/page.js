@@ -3,17 +3,20 @@ import HomeMenu from "@/components/HomeMenu";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import "./globals.css";
-import { CarouselPlugin } from "@/components/Carousel";
+import Carousel from "@/components/Carousel";
+import SectionHeader from "@/components/SectionHeader";
 
+let slides = ["/slide1.jpg", "/slide2.jpg", "/slide3.jpg"];
 // import MenuPage from "../../pages/menu";
 export default function Home() {
   return (
     <div className="">
-      <Navbar />
       <Hero />
-      {/* <CarouselPlugin /> */}
+      <div className="w-full max-w-6xl mx-auto">
+        <Carousel slides={slides} />
+      </div>
       <div className="text-red-800 text-lg font-bold flex justify-center mx-auto">
-        Add a slider with pictures here
+        Update the Images and the Indicator`s position in the above slider
       </div>
       <div className="text-red-800 text-lg font-bold flex justify-center mx-auto">
         Add functionality to scroll to the menu section if a user clicks on menu
@@ -22,7 +25,42 @@ export default function Home() {
       <div className="text-red-800 text-lg font-bold flex justify-center mx-auto">
         Use Breadcrumbs to show the current page`s path
       </div>
+      <div className="text-red-800 text-lg font-bold flex justify-center mx-auto">
+        Add the authenticated user data (user info logged into the console)to
+        Employee/Customers Tables
+      </div>
       <HomeMenu />
+      <section className="text-center my-16">
+        <SectionHeader subHeader={"Our Story"} mainHeader={"About Us"} />
+        <div className="text-gray-500 max-w-2xl mx-auto mt-4 flex flex-col gap-4">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.{" "}
+          </p>
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur.
+          </p>
+        </div>
+      </section>
+      <section className="text-center my-8">
+        <SectionHeader subHeader={"Don't Hesitate"} mainHeader={"Contact Us"} />
+        <div className="text-4xl underline text-gray-500">
+          <a className="text-4xl mt-8" href="tel:+2014564567">
+            +201 456 4567
+          </a>
+        </div>
+      </section>
     </div>
     // <main className="flex min-h-screen flex-col items-center justify-between p-24">
     //   <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">

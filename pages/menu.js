@@ -148,7 +148,6 @@ const MenuPage = ({ menuItems }) => {
 
   return (
     <div className="">
-      <Navbar />
       <div className="max-w-6xl mx-auto">
         {categories.map((category) => (
           <div key={category}>
@@ -157,6 +156,7 @@ const MenuPage = ({ menuItems }) => {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               {getItemsByCategory(category).map((item) => (
+                // Need to get a image for each food item in the menu from S3
                 <ItemCard key={item.ItemId} item={item} />
               ))}
             </div>
@@ -170,22 +170,12 @@ const MenuPage = ({ menuItems }) => {
 export const getServerSideProps = async () => {
   try {
     // const response = await fetch(
-    //   "https://zpdxjxcoc6.execute-api.us-east-2.amazonaws.com/test/menu"
+    //   "https://APIId.execute-api.region.amazonaws.com/test/menu"
     // );
     const data = await response.json();
 
-    // // Group items by category
-    // const menuItemsByCategory = data.records.reduce((acc, item) => {
-    //   if (!acc[item.Category]) {
-    //     acc[item.Category] = { Category: item.Category, items: [] };
-    //   }
-    //   acc[item.Category].items.push(item);
-    //   return acc;
-    // }, {});
-
     return {
       props: {
-        // menuItems: Object.values(menuItemsByCategory),
         menuItems: data.records,
       },
     };
@@ -199,47 +189,3 @@ export const getServerSideProps = async () => {
 };
 
 export default MenuPage;
-// import Image from "next/image";
-
-// const MenuPage = ({ menuItems }) => {
-//   console.log(menuItems);
-//   return (
-//     <div>
-//       {menuItems.map((item) => (
-//         <div key={item.ItemId}>
-//           <Image
-//             src="/pic1.jpg"
-//             alt="Menu Item Image"
-//             width={150}
-//             height={150}
-//           />
-//           <div>{item.Name}</div>
-//           <div>{item.Price}</div>
-//         </div>
-//       ))}
-//     </div>
-//   );
-
-//   // return <div>This is menu page</div>;
-// };
-
-// export const getServerSideProps = async () => {
-//   try {
-//     const response = await fetch(
-//       "https://zpdxjxcoc6.execute-api.us-east-2.amazonaws.com/test/menu"
-//     );
-//     const data = await response.json();
-//     return {
-//       props: {
-//         menuItems: data.records,
-//       },
-//     };
-//   } catch (error) {
-//     return {
-//       props: {
-//         menuItems: [],
-//       },
-//     };
-//   }
-// };
-// export default MenuPage;
